@@ -1,0 +1,5 @@
+pyspark==3.5.1   # (closest stable PyPI release, Spark 3.5.5 not yet on PyPI)
+confluent-kafka==2.5.0  # Kafka Python client (better than kafka-python)
+kafka-python==2.0.2     # (optional alternative to produce/consume)
+pandas==2.2.3           # If you did any Pandas-based validation
+pyarrow==17.0.0         # Needed for Parquet writes

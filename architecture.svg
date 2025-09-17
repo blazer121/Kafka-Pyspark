@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="320" viewBox="0 0 1100 320">
+  <defs>
+    <style>
+      .box { fill:#ffffff; stroke:#4a90e2; stroke-width:2.2; rx:10; }
+      .title { font: 600 18px 'Segoe UI', Roboto, Arial; fill:#1a3d6d; }
+      .label { font: 400 14px 'Segoe UI', Roboto, Arial; fill:#333; }
+      .arrow { stroke:#4a90e2; stroke-width:3; fill:none; marker-end:url(#arrowhead); }
+      .icon { fill:#4a90e2; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#4a90e2"/>
+    </marker>
+  </defs>
+
+  <!-- Kafka box -->
+  <g transform="translate(40,60)">
+    <rect class="box" width="240" height="160" />
+    <text class="title" x="20" y="35">Kafka</text>
+    <g transform="translate(20,60)">
+      <rect x="0" y="0" width="28" height="18" rx="3" class="icon" />
+      <rect x="40" y="0" width="28" height="18" rx="3" class="icon" />
+      <rect x="80" y="0" width="28" height="18" rx="3" class="icon" />
+      <text class="label" x="0" y="50">• Topics: raw-events, enriched-events</text>
+      <text class="label" x="0" y="72">• Retention: configured in Kafka</text>
+    </g>
+  </g>
+
+  <!-- Arrow Kafka -> PySpark -->
+  <path class="arrow" d="M280 140 L380 140" />
+
+  <!-- PySpark Structured Streaming box -->
+  <g transform="translate(400,40)">
+    <rect class="box" width="320" height="200" />
+    <text class="title" x="20" y="35">PySpark Structured Streaming</text>
+    <text class="label" x="20" y="70">• Read stream from Kafka</text>
+    <text class="label" x="20" y="95">• Transformations: parsing, joins, aggregations</text>
+    <text class="label" x="20" y="120">• Checkpointing to durable storage</text>
+    <text class="label" x="20" y="145">• Mode: micro-batch or continuous</text>
+  </g>
+
+  <!-- Arrow PySpark -> Sink -->
+  <path class="arrow" d="M720 140 L800 140" />
+
+  <!-- Sink box -->
+  <g transform="translate(820,60)">
+    <rect class="box" width="240" height="160" />
+    <text class="title" x="20" y="35">Sink</text>
+    <text class="label" x="20" y="70">• CSV (append/partitioned)</text>
+    <text class="label" x="20" y="95">• Parquet (partitioned, compressed)</text>
+    <text class="label" x="20" y="120">• Storage: HDFS / S3 / ADLS / Local</text>
+    <text class="label" x="20" y="145">• Schema evolution via Parquet</text>
+  </g>
+</svg>
